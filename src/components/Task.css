@@ -6,6 +6,16 @@
     border-radius: 5px;
     justify-content: space-between;
     color: #eee;
-    align-items: center;
+    align-items: center;    
+}
+
+.task-title {
     cursor: pointer;
+}
+
+.remove-task-button {
+    background-color: #444;
+    border: none;
+    font-size: 16px;
+    color: chartreuse;
 }
