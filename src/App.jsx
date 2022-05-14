@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import {
   BrowserRouter as Router,
@@ -26,6 +27,18 @@ const App = () => {
       completed: true,
     }, 
   ]);
+
+  // este useEfect executa sua função sempre que uma variável muda
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const { data } = await axios.get("https://jsonplaceholder.cypress.io/todos?_limit=10"
+      );
+       setTasks(data);
+    };
+
+    fetchTasks();
+
+  }, []); //sempre que essa tasks mudar, ele vai executar o código do seu escopo
 
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map(task => {
